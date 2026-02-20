@@ -1,12 +1,11 @@
 import Application from "../../models/Application.model.js";
 import mongoose from "mongoose";
 
-/* ---------- HELPER ---------- */
+//HELPER
 const isValidObjectId = (id) => mongoose.Types.ObjectId.isValid(id);
 
-/* ============================
-   CREATE APPLICATION (STUDENT)
-============================ */
+  //CREATE APPLICATION (STUDENT)
+
 export const createApplication = async (req, res, next) => {
   try {
     const application = await Application.create({
@@ -23,9 +22,7 @@ export const createApplication = async (req, res, next) => {
   }
 };
 
-/* ============================
-   GET MY APPLICATIONS (PAGINATED + SEARCH)
-============================ */
+//GET MY APPLICATIONS (PAGINATED + SEARCH)
 export const getMyApplications = async (req, res, next) => {
   try {
     const page = Number(req.query.page) || 1;
@@ -72,9 +69,7 @@ export const getMyApplications = async (req, res, next) => {
   }
 };
 
-/* ============================
-   GET SINGLE APPLICATION
-============================ */
+//GET SINGLE APPLICATION
 export const getApplicationById = async (req, res, next) => {
   try {
     if (!isValidObjectId(req.params.id)) {
@@ -109,9 +104,7 @@ export const getApplicationById = async (req, res, next) => {
   }
 };
 
-/* ============================
-   UPDATE STATUS (INLINE UPDATE)
-============================ */
+//UPDATE STATUS (INLINE UPDATE)
 export const updateApplicationStatus = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -149,7 +142,6 @@ export const updateApplicationStatus = async (req, res, next) => {
 
     application.status = status;
 
-    // ✅ FIX: do not overwrite with undefined / empty unintentionally
     if (currentRound !== undefined) {
       application.currentRound = currentRound;
     }
@@ -165,9 +157,7 @@ export const updateApplicationStatus = async (req, res, next) => {
   }
 };
 
-/* ============================
-   UPDATE FULL APPLICATION
-============================ */
+//UPDATE FULL APPLICATION
 export const updateApplication = async (req, res, next) => {
   try {
     if (!isValidObjectId(req.params.id)) {
@@ -215,7 +205,6 @@ export const updateApplication = async (req, res, next) => {
     application.rounds = rounds;
     application.status = status;
 
-    // ✅ FIX: protect existing value
     if (currentRound !== undefined) {
       application.currentRound = currentRound;
     }
@@ -231,9 +220,7 @@ export const updateApplication = async (req, res, next) => {
   }
 };
 
-/* ============================
-   DELETE APPLICATION
-============================ */
+//DELETE APPLICATION
 export const deleteApplication = async (req, res, next) => {
   try {
     if (!isValidObjectId(req.params.id)) {
@@ -277,9 +264,7 @@ export const deleteApplication = async (req, res, next) => {
   }
 };
 
-/* ============================
-   STUDENT DASHBOARD SUMMARY
-============================ */
+//STUDENT DASHBOARD SUMMARY
 export const getStudentDashboard = async (req, res, next) => {
   try {
     const userObjectId = new mongoose.Types.ObjectId(req.user.userId);
@@ -320,9 +305,7 @@ export const getStudentDashboard = async (req, res, next) => {
   }
 };
 
-/* ============================
-   ADMIN: GET ALL APPLICATIONS
-============================ */
+//ADMIN: GET ALL APPLICATIONS
 export const getAllApplications = async (req, res, next) => {
   try {
     const page = Number(req.query.page) || 1;
@@ -393,9 +376,7 @@ export const getAllApplications = async (req, res, next) => {
   }
 };
 
-/* ============================
-   ADMIN: GET APPLICATION DETAILS
-============================ */
+//ADMIN: GET APPLICATION DETAILS
 export const getAdminApplicationById = async (req, res, next) => {
   try {
     if (!isValidObjectId(req.params.id)) {

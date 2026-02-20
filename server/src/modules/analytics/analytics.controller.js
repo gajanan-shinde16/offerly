@@ -2,9 +2,7 @@ import User from "../../models/User.model.js";
 import Application from "../../models/Application.model.js";
 import mongoose from "mongoose";
 
-/* ============================
-   STUDENT: SUMMARY
-============================ */
+   //STUDENT: SUMMARY
 export const getMySummary = async (req, res, next) => {
   try {
     const stats = await Application.aggregate([
@@ -42,9 +40,7 @@ export const getMySummary = async (req, res, next) => {
   }
 };
 
-/* ============================
-   STUDENT: COMPANY-WISE STATS
-============================ */
+// STUDENT: COMPANY-WISE STATS
 export const companyWiseStats = async (req, res, next) => {
   try {
     const stats = await Application.aggregate([
@@ -80,9 +76,7 @@ export const companyWiseStats = async (req, res, next) => {
   }
 };
 
-/* ============================
-   STUDENT: ROUND DROP-OFF
-============================ */
+// STUDENT: ROUND DROP-OFF
 export const roundDropOff = async (req, res, next) => {
   try {
     const data = await Application.aggregate([
@@ -110,18 +104,16 @@ export const roundDropOff = async (req, res, next) => {
   }
 };
 
-/* ============================
-   ADMIN: GLOBAL STATS
-============================ */
+//ADMIN: GLOBAL STATS
 export const getAdminStats = async (req, res, next) => {
   try {
-    // 1️⃣ Total users
+    // 1️ Total users
     const totalUsers = await User.countDocuments();
 
-    // 2️⃣ Total applications
+    // 2️ Total applications
     const totalApplications = await Application.countDocuments();
 
-    // 3️⃣ Applications by status
+    // 3️ Applications by status
     const statusStats = await Application.aggregate([
       {
         $group: {
@@ -141,7 +133,7 @@ export const getAdminStats = async (req, res, next) => {
       applicationsByStatus[item._id] = item.count;
     });
 
-    // 4️⃣ Top companies
+    // 4️ Top companies
     const topCompanies = await Application.aggregate([
       {
         $group: {

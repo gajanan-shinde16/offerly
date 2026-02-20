@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-/* ---------- CREATE APPLICATION ---------- */
+//CREATE APPLICATION
 export const createApplicationSchema = z.object({
   company: z.string().min(1, "Company name is required"),
   role: z.string().min(1, "Role is required"),
@@ -10,13 +10,13 @@ export const createApplicationSchema = z.object({
   status: z.enum(["In-Progress", "Offer", "Rejected"])
 });
 
-/* ---------- INLINE STATUS UPDATE ---------- */
+//INLINE STATUS UPDATE
 export const updateStatusSchema = z.object({
   status: z.enum(["In-Progress", "Offer", "Rejected"]),
   currentRound: z.string().optional()
 });
 
-/* ---------- FULL UPDATE ---------- */
+//FULL UPDATE
 export const updateApplicationSchema = z.object({
   company: z.string().min(2).max(100),
   role: z.string().min(2).max(100),

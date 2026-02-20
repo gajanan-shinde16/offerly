@@ -23,7 +23,7 @@ import { allowRoles } from "../../middlewares/role.middleware.js";
 
 const router = express.Router();
 
-/* ---------- STUDENT ---------- */
+//STUDENT
 router.get("/dashboard", protect, getStudentDashboard);
 router.get("/me", protect, getMyApplications);
 
@@ -52,7 +52,7 @@ router.put(
 
 router.delete("/:id", protect, deleteApplication);
 
-/* ---------- ADMIN ---------- */
+//ADMIN
 router.get(
   "/admin/all",
   protect,

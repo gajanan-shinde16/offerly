@@ -4,7 +4,7 @@ import User from "../../models/User.model.js";
 
 const isProd = process.env.NODE_ENV === "production";
 
-/* ---------- REGISTER ---------- */
+//REGISTER 
 export const register = async (req, res, next) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -23,7 +23,7 @@ export const register = async (req, res, next) => {
   }
 };
 
-/* ---------- LOGIN ---------- */
+//LOGIN 
 export const login = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
@@ -45,7 +45,7 @@ export const login = async (req, res, next) => {
       .cookie("token", token, {
         httpOnly: true,
         secure: isProd,
-        sameSite: isProd ? "strict" : "lax",
+        sameSite: isProd ? "none" : "lax",
         maxAge: 24 * 60 * 60 * 1000
       })
       .json({
@@ -57,7 +57,7 @@ export const login = async (req, res, next) => {
   }
 };
 
-/* ---------- LOGOUT ---------- */
+//LOGOUT 
 export const logout = (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
