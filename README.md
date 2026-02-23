@@ -1,4 +1,4 @@
-# Offerly 🎯  
+# Offerly   
 *A Placement Application Tracker*
 
 Offerly is a full-stack web application built to help students track, manage, and analyze their placement applications in one place.  
@@ -8,9 +8,9 @@ This project was developed as a practical full-stack system focusing on real-wor
 
 ---
 
-## 🚀 Features
+##  Features
 
-### 👨‍🎓 Student Features
+###  Student Features
 - Add and manage job/internship applications
 - Track application status: **In-Progress, Offer, Rejected**
 - Inline update of application status and current interview round
@@ -39,7 +39,7 @@ This project was developed as a practical full-stack system focusing on real-wor
 
 ---
 
-## 🧱 Tech Stack
+##  Tech Stack
 
 ### Frontend
 - **React (Vite)**
@@ -61,7 +61,7 @@ This project was developed as a practical full-stack system focusing on real-wor
 
 ---
 
-## 🔐 Authentication & Security
+##  Authentication & Security
 
 - JWT stored in **HttpOnly cookies**
 - Protected routes using middleware
@@ -72,7 +72,7 @@ This project was developed as a practical full-stack system focusing on real-wor
 
 ---
 
-## ⚙️ Environment Variables
+##  Environment Variables
 
 Create a `.env` file inside the `server` folder:
 
