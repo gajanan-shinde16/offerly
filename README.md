@@ -1,6 +1,5 @@
 
 # Offerly — Placement Application Tracker
->>>>>>> 23e344a (Update README.md for improved clarity and structure)
 
 > A full-stack web application to track, manage, and analyze campus placement applications — with separate Student and Admin dashboards.
 
@@ -31,7 +30,6 @@ Administrators get a bird's-eye view across all students and companies.
 - **Analytics dashboard**
   - Total applications, offer rate, rejection rate
   - Company-wise application breakdown
->>>>>>> 23e344a (Update README.md for improved clarity and structure)
   - Interview round drop-off analysis
 
 ### Admin
@@ -59,7 +57,6 @@ Administrators get a bird's-eye view across all students and companies.
 ---
 
 ## 🔐 Security Highlights
->>>>>>> 23e344a (Update README.md for improved clarity and structure)
 
 - JWT tokens stored in **HttpOnly cookies** — not localStorage (XSS-safe)
 - Protected routes using custom auth middleware
@@ -94,7 +91,6 @@ offerly/
 ---
 
 ## ⚙️ Local Setup
->>>>>>> 23e344a (Update README.md for improved clarity and structure)
 
 ### Prerequisites
 - Node.js v18+
@@ -159,4 +155,3 @@ App runs at `http://localhost:5173`
 - [ ] Email notification on status change (Nodemailer)
 - [ ] Resume upload per application (Cloudinary)
 - [ ] CI/CD via GitHub Actions
->>>>>>> 23e344a (Update README.md for improved clarity and structure)
