@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -54,6 +55,9 @@ function Navbar() {
               <NavLink to="/applications/new" className={linkClass}>
                 Add Application
               </NavLink>
+              <NavLink to="/ai-suggestions" className={linkClass}>
+                AI Suggestions
+              </NavLink>
             </>
           )}
 
@@ -109,6 +113,13 @@ function Navbar() {
                 className={linkClass}
               >
                 Add Application
+              </NavLink>
+              <NavLink
+                onClick={() => setOpen(false)}
+                to="/ai-suggestions"
+                className={linkClass}
+              >
+                AI Suggestions
               </NavLink>
             </>
           )}

@@ -1,13 +1,35 @@
+
 import mongoose from "mongoose";
 
 const applicationSchema = new mongoose.Schema(
   {
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    company: String,
-    role: String,
-    package: Number,
-    rounds: [String],
-    currentRound: String,
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true
+    },
+    company: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    role: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    package: {
+      type: Number,
+      min: 0
+    },
+    rounds: {
+      type: [String],
+      default: []
+    },
+    currentRound: {
+      type: String,
+      default: ""
+    },
     status: {
       type: String,
       enum: ["In-Progress", "Offer", "Rejected"],
@@ -17,7 +39,7 @@ const applicationSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Indexes for performance
+// Indexes for application lookup and filtering.
 applicationSchema.index({ company: 1 });
 applicationSchema.index({ userId: 1 });
 applicationSchema.index({ userId: 1, status: 1 });

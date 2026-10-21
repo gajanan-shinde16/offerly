@@ -13,6 +13,7 @@ import AdminAnalytics from "./pages/AdminAnalytics";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminApplications from "./pages/AdminApplications";
 import AdminApplicationDetails from "./pages/AdminApplicationDetails";
+import AISuggestions from "./pages/AISuggestions";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useAuth } from "./context/AuthContext";
@@ -81,6 +82,19 @@ function App() {
             element={
               <ProtectedRoute>
                 <EditApplication />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/ai-suggestions"
+            element={
+              <ProtectedRoute>
+                {user?.role === "student" ? (
+                  <AISuggestions />
+                ) : (
+                  <Navigate to="/dashboard" replace />
+                )}
               </ProtectedRoute>
             }
           />
